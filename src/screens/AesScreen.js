@@ -40,6 +40,17 @@ export default function AesScreen() {
     }
   };
 
+  const handleSuggestKey = () => {
+    // AES can use 128-bit (16 chars), 192-bit (24 chars), or 256-bit (32 chars) keys.
+    // We will generate a 16-character (128-bit) secure key.
+    let suggested = '';
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
+    for (let i = 0; i < 16; i++) {
+        suggested += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    setKey(suggested);
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>Advanced Encryption Standard</Text>
@@ -54,12 +65,16 @@ export default function AesScreen() {
           onChangeText={setPlainText}
         />
 
-        <Text style={styles.label}>Anahtar (Parola):</Text>
+        <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 8}}>
+          <Text style={[styles.label, {marginBottom: 0}]}>Anahtar (Parola):</Text>
+          <TouchableOpacity onPress={handleSuggestKey}>
+            <Text style={{color: '#3B82F6', fontWeight: 'bold', fontSize: 13}}>+ ANAHTAR ÖNER (16 Karakter)</Text>
+          </TouchableOpacity>
+        </View>
         <TextInput
           style={styles.input}
           placeholder="Gizli anahtar girin..."
           placeholderTextColor="#9CA3AF"
-          secureTextEntry
           value={key}
           onChangeText={setKey}
         />

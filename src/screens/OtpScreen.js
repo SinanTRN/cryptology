@@ -64,7 +64,7 @@ export default function OtpScreen() {
         <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 8}}>
           <Text style={[styles.label, {marginBottom: 0}]}>Anahtar (Key):</Text>
           <TouchableOpacity onPress={handleGenerateKey}>
-            <Text style={{color: '#3B82F6', fontWeight: 'bold', fontSize: 13}}>+ RASTGELE ÜRET</Text>
+            <Text style={{color: '#3B82F6', fontWeight: 'bold', fontSize: 13}}>+ ANAHTAR ÖNER (Metin Boyutunda)</Text>
           </TouchableOpacity>
         </View>
         

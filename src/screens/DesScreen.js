@@ -40,6 +40,16 @@ export default function DesScreen() {
     }
   };
 
+  const handleSuggestKey = () => {
+    // DES uses 64-bit blocks, so an 8-character string (8 bytes) is standard
+    let suggested = '';
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
+    for (let i = 0; i < 8; i++) {
+      suggested += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    setKey(suggested);
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>Data Encryption Standard</Text>
@@ -54,12 +64,16 @@ export default function DesScreen() {
           onChangeText={setPlainText}
         />
 
-        <Text style={styles.label}>Anahtar (Parola):</Text>
+        <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 8}}>
+          <Text style={[styles.label, {marginBottom: 0}]}>Anahtar (Parola):</Text>
+          <TouchableOpacity onPress={handleSuggestKey}>
+            <Text style={{color: '#3B82F6', fontWeight: 'bold', fontSize: 13}}>+ ANAHTAR ÖNER (8 Karakter)</Text>
+          </TouchableOpacity>
+        </View>
         <TextInput
           style={styles.input}
           placeholder="Gizli anahtar girin..."
           placeholderTextColor="#9CA3AF"
-          secureTextEntry
           value={key}
           onChangeText={setKey}
         />
