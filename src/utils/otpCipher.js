@@ -14,9 +14,9 @@ export const otpEncryptDecrypt = (text, key) => {
 
   let result = '';
   for (let i = 0; i < text.length; i++) {
-    // XOR the character codes
+    // karakterlerin ascii değerlerini aldım.
     const xorValue = text.charCodeAt(i) ^ key.charCodeAt(i);
-    // Convert back to character
+    // tekrardan karaktere dönüştürdüm.
     result += String.fromCharCode(xorValue);
   }
   return result;

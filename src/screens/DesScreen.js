@@ -41,7 +41,6 @@ export default function DesScreen() {
   };
 
   const handleSuggestKey = () => {
-    // DES uses 64-bit blocks, so an 8-character string (8 bytes) is standard
     let suggested = '';
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
     for (let i = 0; i < 8; i++) {

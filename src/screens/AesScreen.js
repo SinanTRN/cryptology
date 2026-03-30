@@ -41,8 +41,6 @@ export default function AesScreen() {
   };
 
   const handleSuggestKey = () => {
-    // AES can use 128-bit (16 chars), 192-bit (24 chars), or 256-bit (32 chars) keys.
-    // We will generate a 16-character (128-bit) secure key.
     let suggested = '';
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
     for (let i = 0; i < 16; i++) {
