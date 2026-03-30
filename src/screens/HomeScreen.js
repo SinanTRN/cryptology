@@ -7,7 +7,7 @@ export default function HomeScreen({ navigation }) {
       <Text style={styles.title}>Uygulamalı Kriptoloji Algoritmaları</Text>
       
       <View style={styles.card}>
-        <Text style={styles.description}>Bireysel projelerde verilen algoritmaların (Stream ve Block Cipher) simülasyonları.</Text>
+        <Text style={styles.description}>Stream ve Block Cipher simülasyonları.</Text>
 
         <TouchableOpacity 
           style={[styles.button, { backgroundColor: '#3B82F6' }]} 
